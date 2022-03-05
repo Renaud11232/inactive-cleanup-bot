@@ -19,4 +19,3 @@ class Data:
         guild_data = GuildData(guild_data_path, self.__defaults)
         self.__guilds[guild_id] = guild_data
         return guild_data
-

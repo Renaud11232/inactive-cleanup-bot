@@ -46,9 +46,19 @@ class GuildConfig:
         with open(self.__config_path, "w") as config_file:
             json.dump(self.__config, config_file, indent=2, sort_keys=True)
 
+    def set_active(self, value):
+        self.__set("active", value)
+        self.__save()
+
+    def is_active(self):
+        return self.__get("active")
+
     def set_timeout(self, value):
         self.__set("timeout", value)
         self.__save()
+
+    def get_timeout(self):
+        return self.__get("timeout")
 
     def add_admin_role(self, value):
         roles = self.__get("admin.roles")
@@ -95,6 +105,9 @@ class GuildConfig:
             roles.remove(value)
         self.__save()
 
+    def get_immunity_roles(self):
+        return self.__get("immunity.roles")
+
     def add_immunity_user(self, value):
         users = self.__get("immunity.users")
         if not users:
@@ -109,3 +122,6 @@ class GuildConfig:
         if users and value in users:
             users.remove(value)
         self.__save()
+
+    def get_immunity_users(self):
+        return self.__get("immunity.users")

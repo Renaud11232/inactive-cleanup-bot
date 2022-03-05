@@ -3,6 +3,7 @@
   "data": "./bot_data",
   "command_prefix": "$",
   "defaults": {
-    "inactivity_threshold": "10h"
+    "timeout": 7776000,
+    "active": false
   }
 }

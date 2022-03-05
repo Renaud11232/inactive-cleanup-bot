@@ -1,4 +1,5 @@
 .idea/
 venv/
+bot_data/
 config.json
 main.py

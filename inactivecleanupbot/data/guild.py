@@ -6,7 +6,7 @@ class GuildData:
 
     def __init__(self, path, defaults):
         self.__config = GuildConfig(path, defaults)
-        self.__users = GuildUsers(path)
+        self.__users = GuildUsers(path, self.__config)
 
     def get_config(self):
         return self.__config
