@@ -159,7 +159,9 @@ class InactiveCleanupBot:
                     self.__logger.debug(f"{member.name} is inactive and is candidate to be kicked")
                     immune_by_role = any(role.id in self.__data.get_guild_data(guild.id).get_config().get_immunity_roles() for role in member.roles)
                     immune_by_user = member.id in self.__data.get_guild_data(guild.id).get_config().get_immunity_users()
-                    if immune_by_role or immune_by_user:
+                    if member.bot:
+                        self.__logger.debug(f"{member.name} is a bot and will not be kicked")
+                    elif immune_by_role or immune_by_user:
                         self.__logger.debug(f"{member.name} is immune and cannot be kicked")
                     elif self.__data.get_guild_data(guild.id).get_config().is_active():
                         self.__logger.info(f"kicking {member.name} from the guild")
