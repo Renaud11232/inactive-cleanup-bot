@@ -1,5 +1,5 @@
 {
-  "token": "<yourAmazingBotToken>4+",
+  "token": "<yourAmazingBotToken>",
   "data": "./bot_data",
   "command_prefix": "$",
   "defaults": {
