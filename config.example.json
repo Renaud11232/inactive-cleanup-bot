@@ -1,6 +1,7 @@
 {
   "token": "<yourAmazingBotToken>",
   "data": "./bot_data",
+  "log_level": "INFO",
   "command_prefix": "$",
   "defaults": {
     "timeout": 7776000,

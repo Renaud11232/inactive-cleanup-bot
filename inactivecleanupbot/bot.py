@@ -15,6 +15,8 @@ class InactiveCleanupBot:
         self.__logger.info("Loading global configuration file...")
         with open(config_path, "r") as config_file:
             self.__config = json.load(config_file)
+        level = logging.getLevelName(self.__config["log_level"])
+        self.__logger.setLevel(level)
         self.__data = Data(self.__config["data"], self.__config["defaults"])
         self.__logger.info("Initializing bot instance...")
         intents = nextcord.Intents.default()
@@ -26,9 +28,9 @@ class InactiveCleanupBot:
 
     def __init_logger(self):
         self.__logger = logging.getLogger("inactivecleanupbot")
-        self.__logger.setLevel(logging.DEBUG)
+        self.__logger.setLevel(logging.INFO)
         handler = logging.StreamHandler(sys.stdout)
-        formatter = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         handler.setFormatter(formatter)
         self.__logger.addHandler(handler)
 
