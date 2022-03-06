@@ -8,10 +8,10 @@ def get_long_description():
 
 setuptools.setup(
     name="inactive-cleanup-bot",
-    version="0.0.1",
+    version="0.1.0",
     author="Renaud Gaspard",
     author_email="gaspardrenaud@hotmail.com",
-    description="A simple bot that removes inactive users from a server",
+    description="A simple bot that removes inactive users from a discord server",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     url="https://github.com/Renaud11232/inactive-cleanup-bot",

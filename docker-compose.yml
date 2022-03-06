@@ -1,0 +1,8 @@
+version: "3"
+services:
+  inactivecleanerbot:
+    container_name: inactivecleanerbot
+    image: "ghcr.io/renaud11232/inactivecleanerbot"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
