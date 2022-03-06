@@ -1,5 +1,6 @@
 import os
 from .guild import GuildData
+import shutil
 
 
 class Data:
@@ -19,3 +20,10 @@ class Data:
         guild_data = GuildData(guild_data_path, self.__defaults)
         self.__guilds[guild_id] = guild_data
         return guild_data
+
+    def remove_guild_data(self, guild_id):
+        guild_id = str(guild_id)
+        self.__guilds.pop(guild_id, None)
+        guild_data_path = os.path.join(self.__data_path, guild_id)
+        if os.path.exists(guild_data_path):
+            shutil.rmtree(guild_data_path)

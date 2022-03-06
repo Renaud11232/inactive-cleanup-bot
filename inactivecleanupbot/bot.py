@@ -85,7 +85,13 @@ class InactiveCleanupBot:
         @bot.event
         async def on_guild_join(guild: nextcord.Guild):
             self.__logger.debug("The bot joined a new guild, updating user list")
+            self.__data.remove_guild_data(guild.id)
             self.__data.get_guild_data(guild.id).get_users().track_new_members(guild.members)
+
+        @bot.event
+        async def on_guild_remove(guild: nextcord.Guild):
+            self.__logger.debug("The bot left a guild, deleting data")
+            self.__data.remove_guild_data(guild.id)
 
         @bot.event
         async def on_error(event, *args, **kwargs):
