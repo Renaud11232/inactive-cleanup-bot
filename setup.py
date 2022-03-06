@@ -18,7 +18,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     entry_points={
         "console_scripts": [
-            "inactive-cleanup-bot=inactivecleanupbot:command_line:main.py"
+            "inactive-cleanup-bot=inactivecleanupbot.command_line:main"
         ]
     },
     install_requires=[
