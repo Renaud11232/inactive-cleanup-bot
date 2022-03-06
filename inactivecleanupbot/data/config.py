@@ -106,7 +106,7 @@ class GuildConfig:
         self.__save()
 
     def get_immunity_roles(self):
-        return self.__get("immunity.roles")
+        return self.__get("immunity.roles") or []
 
     def add_immunity_user(self, value):
         users = self.__get("immunity.users")
@@ -124,4 +124,4 @@ class GuildConfig:
         self.__save()
 
     def get_immunity_users(self):
-        return self.__get("immunity.users")
+        return self.__get("immunity.users") or []
